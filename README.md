@@ -260,7 +260,6 @@ All protected routes expect the JWT session cookie set by `/api/auth/login`.
 | `backend/` | `npm run dev` | Start the API with hot reload (`tsx watch`) |
 | `backend/` | `npm run build` | Compile TypeScript to `dist/` |
 | `backend/` | `npm start` | Run the compiled server |
-| `backend/` | `npm run test:e2e` | Run end-to-end tests |
 
 ## 🗺️ Roadmap
 

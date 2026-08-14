@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
-    "test:e2e": "node --import tsx --test tests/e2e.test.ts"
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -35,7 +34,6 @@
     "@types/node": "^26.1.1",
     "@types/streamifier": "^0.1.2",
     "nodemon": "^3.1.14",
-    "socket.io-client": "^4.8.3",
     "ts-node": "^10.9.2",
     "tsx": "^4.23.1",
     "typescript": "5.9"
