@@ -29,7 +29,7 @@ const env = {
 
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || "7d",
 
-  CLIENT_URL: process.env.CLIENT_URL || "http://localhost:3000",
+  CLIENT_URL: process.env.CLIENT_URL || "http://localhost:8081",
 
   CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || "",
 
