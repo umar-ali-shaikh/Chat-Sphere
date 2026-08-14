@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
+import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -39,7 +39,6 @@ export const Route = createFileRoute("/login")({
 });
 
 function LoginPage() {
-  const navigate = useNavigate();
   const { login, loginPending, status } = useAuth();
   const {
     register,
@@ -49,15 +48,20 @@ function LoginPage() {
 
   useEffect(() => {
     if (status === "authenticated") {
-      navigate({ to: "/chat" });
+      // Full navigation, not the SPA router: /chat's beforeLoad re-verifies
+      // the session by forwarding the auth cookie server-side, and doing
+      // that over a real top-level request is what makes it reliably see a
+      // cookie that was just set a moment ago by the cross-origin login
+      // call — a client-side router transition intermittently missed it.
+      window.location.assign("/chat");
     }
-  }, [status, navigate]);
+  }, [status]);
 
   const onSubmit = async (values: Values) => {
     try {
       await login(values);
       toast.success("Welcome back");
-      navigate({ to: "/chat" });
+      window.location.assign("/chat");
     } catch (error) {
       toast.error(apiErrorMessage(error, "Couldn't sign in. Check your details and try again."));
     }

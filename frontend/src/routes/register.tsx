@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
+import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -55,7 +55,6 @@ export const Route = createFileRoute("/register")({
 });
 
 function RegisterPage() {
-  const navigate = useNavigate();
   const { register: registerUser, registerPending, status } = useAuth();
   const {
     register,
@@ -68,15 +67,16 @@ function RegisterPage() {
 
   useEffect(() => {
     if (status === "authenticated") {
-      navigate({ to: "/chat" });
+      // Full navigation, not the SPA router — see login.tsx for why.
+      window.location.assign("/chat");
     }
-  }, [status, navigate]);
+  }, [status]);
 
   const onSubmit = async (values: Values) => {
     try {
       await registerUser({ name: values.name, email: values.email, password: values.password });
       toast.success("Account created");
-      navigate({ to: "/chat" });
+      window.location.assign("/chat");
     } catch (error) {
       toast.error(apiErrorMessage(error, "Couldn't create your account. Please try again."));
     }
