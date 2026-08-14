@@ -1,0 +1,144 @@
+Complete Features
+✅ Login / Register
+✅ JWT Authentication
+✅ Protected Routes
+✅ One-to-One Chat
+✅ Real-time Messaging
+✅ Online / Offline Status
+✅ Typing Indicator
+✅ Seen / Delivered
+✅ Image Upload
+✅ Emoji Picker
+✅ Search Users
+✅ Notifications
+✅ Responsive UI
+✅ Dark Mode
+✅ Redux Toolkit State Management
+✅ Production-ready Folder Structure
+
+
+
+
+
+
+| Category         | Technology                                   |
+| ---------------- | -------------------------------------------- |
+| Language         | TypeScript                                   |
+| Frontend         | Next.js 16 + React 19                        |
+| Styling          | Tailwind CSS 4                               |
+| State Management | Redux Toolkit + React Redux                  |
+| Forms            | React Hook Form                              |
+| Validation       | Zod                                          |
+| Backend          | Node.js + Express                            |
+| Database         | MongoDB + Mongoose                           |
+| Authentication   | JWT + Refresh Token + bcrypt                 |
+| Real-time        | Socket.IO                                    |
+| File Upload      | Multer + Cloudinary                          |
+| HTTP Client      | Axios                                        |
+| Animation        | Framer Motion                                |
+| Notifications    | React Hot Toast                              |
+| Deployment       | Vercel + Render + MongoDB Atlas + Cloudinary |
+
+
+
+
+
+
+
+
+🖥️ Frontend
+Next.js 16 (App Router)
+React 19
+TypeScript
+Tailwind CSS 4
+Redux Toolkit
+React Redux
+Axios
+Socket.IO Client
+React Hook Form
+Zod (Validation)
+Framer Motion (Animations)
+Emoji Picker React
+React Hot Toast (Notifications)
+
+
+⚙️ Backend
+Node.js
+Express.js
+TypeScript
+Socket.IO
+JWT (Access + Refresh Token)
+bcrypt
+Multer (File Upload)
+🗄️ Database
+MongoDB
+Mongoose
+☁️ Cloud Storage
+Cloudinary (Images)
+🔐 Authentication
+JWT Authentication
+Refresh Tokens
+HTTP Only Cookies
+Protected Routes
+Password Hashing (bcrypt)
+📡 Real-Time Features
+Socket.IO
+Online / Offline Status
+Typing Indicator
+Seen / Delivered
+Message Notifications
+Live Chat Updates
+📂 State Management
+Redux Toolkit
+React Redux
+
+Slices:
+
+authSlice
+chatSlice
+messageSlice
+notificationSlice
+themeSlice
+userSlice
+📡 API
+REST API
+Axios
+🎨 UI
+Tailwind CSS
+Framer Motion
+Responsive Design
+Dark Mode
+📁 File Upload
+Multer
+Cloudinary
+🧹 Code Quality
+ESLint
+Prettier
+📦 Package Manager
+npm
+🚀 Deployment
+
+
+Frontend
+Vercel
+Backend
+Render (ya Railway)
+Database
+MongoDB Atlas
+Images
+Cloudinary
+🏗️ Architecture
+Next.js (Frontend)
+        │
+        │ Axios
+        ▼
+Express API
+        │
+        ▼
+MongoDB
+        │
+        ▼
+Socket.IO
+        ▲
+        │
+Next.js Client

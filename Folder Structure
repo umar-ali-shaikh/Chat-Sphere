@@ -1,0 +1,204 @@
+client/
+│
+├── app/
+│ ├── (auth)/
+│ │ ├── login/
+│ │ │ └── page.tsx
+│ │ └── register/
+│ │ └── page.tsx
+│ │
+│ ├── (chat)/
+│ │ ├── chat/
+│ │ │ ├── page.tsx
+│ │ │ ├── loading.tsx
+│ │ │ ├── error.tsx
+│ │ │ └── layout.tsx
+│ │ │
+│ │ └── profile/
+│ │ └── page.tsx
+│ │
+│ ├── api/
+│ ├── favicon.ico
+│ ├── globals.css
+│ ├── layout.tsx
+│ └── page.tsx
+│
+components/
+│
+├── ui/
+│
+├── common/
+│ ├── Loader.tsx
+│ ├── Avatar.tsx
+│ ├── EmptyState.tsx
+│ ├── ErrorMessage.tsx
+│ └── PageHeader.tsx
+│
+├── navbar/
+│ ├── Navbar.tsx
+│ ├── UserMenu.tsx
+│ └── SearchBar.tsx
+│
+├── sidebar/
+│ ├── Sidebar.tsx
+│ ├── ChatItem.tsx
+│ ├── UserItem.tsx
+│ └── SidebarHeader.tsx
+│
+├── chat/
+│ ├── ChatWindow.tsx
+│ ├── ChatHeader.tsx
+│ ├── MessageList.tsx
+│ ├── MessageBubble.tsx
+│ ├── MessageInput.tsx
+│ ├── TypingIndicator.tsx
+│ ├── SeenStatus.tsx
+│ └── ImageMessage.tsx
+│
+├── emoji/
+│ └── EmojiPicker.tsx
+│
+├── forms/
+│ ├── LoginForm.tsx
+│ ├── RegisterForm.tsx
+│ └── SearchUserForm.tsx
+│
+└── modals/
+├── ImagePreviewModal.tsx
+├── ProfileModal.tsx
+└── ConfirmationModal.tsx
+│
+├── features/
+│
+├── auth/
+│ ├── authSlice.ts
+│ ├── authApi.ts
+│ ├── authService.ts
+│ ├── authTypes.ts
+│ └── authSelectors.ts
+│
+├── users/
+│ ├── userSlice.ts
+│ ├── userApi.ts
+│ ├── userService.ts
+│ └── userTypes.ts
+│
+├── chat/
+│ ├── chatSlice.ts
+│ ├── chatApi.ts
+│ ├── chatService.ts
+│ └── chatTypes.ts
+│
+├── messages/
+│ ├── messageSlice.ts
+│ ├── messageApi.ts
+│ ├── messageService.ts
+│ └── messageTypes.ts
+│
+├── notification/
+│ ├── notificationSlice.ts
+│ └── notificationTypes.ts
+│
+└── theme/
+├── themeSlice.ts
+└── themeTypes.ts
+│
+├── hooks/
+│
+├── useAuth.ts
+├── useSocket.ts
+├── useDebounce.ts
+├── useChat.ts
+├── useMessages.ts
+├── useTheme.ts
+└── useOnlineStatus.ts
+│
+├── lib/
+│
+├── axios.ts
+├── socket.ts
+├── helpers.ts
+├── constants.ts
+├── env.ts
+└── validators.ts
+│
+├── services/
+│
+├── auth.service.ts
+├── user.service.ts
+├── chat.service.ts
+├── message.service.ts
+└── upload.service.ts
+│
+├── store/
+│
+├── store.ts
+├── provider.tsx
+└── hooks.ts
+│
+├── types/
+│
+├── auth.ts
+├── user.ts
+├── message.ts
+├── chat.ts
+├── api.ts
+└── socket.ts
+│
+├── middleware.ts
+├── public/
+└── package.json
+
+server/
+│
+├── src/
+│ ├── config/
+│ │ ├── db.ts
+│ │ ├── socket.ts
+│ │ └── env.ts
+│ │
+│ ├── controllers/
+│ │ ├── auth.controller.ts
+│ │ ├── chat.controller.ts
+│ │ ├── message.controller.ts
+│ │ ├── user.controller.ts
+│ │ └── upload.controller.ts
+│ │
+│ ├── models/
+│ │ ├── User.ts
+│ │ ├── Chat.ts
+│ │ ├── Message.ts
+│ │ └── Notification.ts
+│ │
+│ ├── routes/
+│ │ ├── auth.routes.ts
+│ │ ├── chat.routes.ts
+│ │ ├── message.routes.ts
+│ │ ├── user.routes.ts
+│ │ └── upload.routes.ts
+│ │
+│ ├── middleware/
+│ │ ├── auth.ts
+│ │ ├── upload.ts
+│ │ └── error.ts
+│ │
+│ ├── services/
+│ │ ├── auth.service.ts
+│ │ ├── chat.service.ts
+│ │ ├── message.service.ts
+│ │ └── notification.service.ts
+│ │
+│ ├── sockets/
+│ │ ├── chat.socket.ts
+│ │ ├── typing.socket.ts
+│ │ └── online.socket.ts
+│ │
+│ ├── utils/
+│ ├── types/
+│ ├── app.ts
+│ └── server.ts
+│
+├── uploads/
+├── .env
+├── tsconfig.json
+└── package.json
