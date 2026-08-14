@@ -30,7 +30,15 @@ export interface ServerSessionResult {
 export const fetchServerUser = createServerFn({ method: "GET" }).handler(
   async (): Promise<ServerSessionResult> => {
     const token = getCookie("token");
-    if (!token) return { user: null, checked: true };
+    // A missing cookie here isn't proof of "logged out": when the frontend
+    // and backend are on different domains (e.g. vercel.app / onrender.com),
+    // the auth cookie is scoped to the backend's domain and can never reach
+    // this server's incoming request at all, authenticated or not. Only a
+    // confirmed 401 from the backend itself counts as "definitely
+    // unauthenticated" — treat "no cookie" as unverified and let the
+    // client-side check (which talks to the backend's own origin directly)
+    // be the source of truth instead.
+    if (!token) return { user: null, checked: false };
 
     try {
       const res = await fetch(`${API_URL}/api/auth/me`, {
