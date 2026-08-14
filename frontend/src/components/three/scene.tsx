@@ -1,6 +1,24 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
+
+function ContextLossWatcher({ onLost }: { onLost: () => void }) {
+  const { gl } = useThree();
+
+  useEffect(() => {
+    const canvas = gl.domElement;
+    const handleContextLost = (event: Event) => {
+      // Letting the browser know we intend to handle recovery ourselves
+      // (via remount) rather than leaving it to retry the dead context.
+      event.preventDefault();
+      onLost();
+    };
+    canvas.addEventListener("webglcontextlost", handleContextLost);
+    return () => canvas.removeEventListener("webglcontextlost", handleContextLost);
+  }, [gl, onLost]);
+
+  return null;
+}
 
 function Particles({ count = 900 }: { count?: number }) {
   const ref = useRef<THREE.Points>(null);
@@ -63,13 +81,20 @@ function Orb() {
   );
 }
 
-export default function Scene({ withOrb = true }: { withOrb?: boolean }) {
+export default function Scene({
+  withOrb = true,
+  onContextLost,
+}: {
+  withOrb?: boolean;
+  onContextLost?: () => void;
+}) {
   return (
     <Canvas
       dpr={[1, 1.6]}
       camera={{ position: [0, 0, 6], fov: 55 }}
       gl={{ antialias: false, powerPreference: "low-power" }}
     >
+      {onContextLost ? <ContextLossWatcher onLost={onContextLost} /> : null}
       <ambientLight intensity={0.6} />
       <pointLight position={[4, 4, 5]} intensity={40} color="#a78bfa" />
       <Particles />
